@@ -1,25 +1,25 @@
-class LinkedNode<E extends Comparable<E>> {
+ public class LinkedNode<E extends Comparable<E>> {
     private E mValue;
     private LinkedNode<E> mNext;
 
-    LinkedNode(E value, LinkedNode<E> next) {
+    public LinkedNode(E value, LinkedNode<E> next) {
         mValue = value;
         mNext = next;
     }
 
-    E getValue() {
+    public E getValue() {
         return mValue;
     }
 
-    void setValue(E value) {
+    public void setValue(E value) {
         mValue = value;
     }
 
-    LinkedNode<E> next() {
+    public LinkedNode<E> next() {
         return mNext;
     }
 
-    void setNext(LinkedNode<E> next) {
+    public void setNext(LinkedNode<E> next) {
         mNext = next;
     }
 }
