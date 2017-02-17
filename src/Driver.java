@@ -3,20 +3,15 @@
  */
 public class Driver {
     public static void main(String args[]) {
-        PriorityQueue<Integer> test = new PriorityQueue<>();
 
-        test.addValue(1);
-        test.addValue(-5);
-        test.addValue(6);
+        double average = 0;
+        for (int i = 0; i < 50; i++) {
+            Graph g = new Graph(2, 128);
+            average += g.MST();
+        }
 
-        for (int i = 0; i < 100; i++)
-            test.addValue(i);
 
-        for (int j = -4; j > -19; j--)
-            test.addValue(j);
 
-        Integer temp = null;
-        while ((temp = test.deleteMin()) != null)
-            System.out.println(temp);
+        System.out.println(average / 50);
     }
 }

@@ -1,11 +1,11 @@
 /**
  * Created by theod on 2/15/2017.
  */
-public class Tuple implements Comparable<Tuple> {
+public class Tuple implements Compare<Tuple> {
     private int mId;
-    private int mDistance;
+    private double mDistance;
 
-    public Tuple(int id, int distance) {
+    public Tuple(int id, double distance) {
         mId = id;
         mDistance = distance;
     }
@@ -18,15 +18,15 @@ public class Tuple implements Comparable<Tuple> {
         mId = id;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return mDistance;
     }
 
-    public void setDistance(int distance) {
+    public void setDistance(double distance) {
         mDistance = distance;
     }
 
-    public int compareTo(Tuple other) {
+    public double compareTo(Tuple other) {
         return mDistance - other.getDistance();
     }
 }

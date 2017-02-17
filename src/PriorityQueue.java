@@ -1,15 +1,17 @@
 /**
  * Created by theod on 2/15/2017.
  */
-public class PriorityQueue<E extends Comparable<E>> {
+public class PriorityQueue<E extends Compare<E>> {
     private LinkedNode<E> mHead;
 
     public PriorityQueue() {
         mHead = null;
     }
 
-    public void addValue(E value) {
+    public LinkedNode<E> addValue(E value) {
         mHead = new LinkedNode<E>(value, mHead);
+
+        return mHead;
     }
 
     public E deleteMin() {
@@ -69,5 +71,9 @@ public class PriorityQueue<E extends Comparable<E>> {
         }
 
         return min.getValue();
+    }
+
+    public boolean isEmpty() {
+        return mHead == null;
     }
 }
