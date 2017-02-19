@@ -22,40 +22,50 @@ class Graph {
     double MST() {
         double[] distance = new double[mNumVertices];
         boolean[] inMST = new boolean[mNumVertices];
+        LinkedNode<Tuple>[] nodePointers = new LinkedNode[mNumVertices];
+
+        PriorityQueue<Tuple> heap = new PriorityQueue<>();
 
         for (int i = 0; i < mNumVertices; i++) {
             distance[i] = 100;
         }
 
         distance[0] = 0;
-
+        nodePointers[0] = heap.addValue(new Tuple(0, 0));
         double MSTweight = 0;
 
         for (int z = 0; z < mNumVertices; z++) {
-            int min_index = -1;
-            double min = 101;
-            for (int i = 0; i < mNumVertices; i++) {
-                if (distance[i] < min && !inMST[i]) {
-                    min = distance[i];
-                    min_index = i;
-                }
-            }
+            Tuple temp = heap.deleteMin();
+//            int min_index = -1;
+//            double min = 101;
+//            for (int i = 0; i < mNumVertices; i++) {
+//                if (distance[i] < min && !inMST[i]) {
+//                    min = distance[i];
+//                    min_index = i;
+//                }
+//            }
 
-            MSTweight += distance[min_index];
-            inMST[min_index] = true;
+            MSTweight += distance[temp.getId()];
+            inMST[temp.getId()] = true;
 
             for (int k = 0; k < mNumVertices; k++) {
                 if (!inMST[k]) {
                     double tempDistance = 0;
 
                     for (int l = 0; l < mDimension; l++) {
-                        tempDistance += Math.pow(mVertices[min_index][l] - mVertices[k][l], 2);
+                        tempDistance += Math.pow(mVertices[temp.getId()][l] - mVertices[k][l], 2);
                     }
 
                     tempDistance = Math.sqrt(tempDistance);
 
-                    if (tempDistance < distance[k])
+                    if (tempDistance < distance[k]) {
                         distance[k] = tempDistance;
+
+                        if (nodePointers[k] == null)
+                            nodePointers[k] = heap.addValue(new Tuple(k, tempDistance));
+                        else
+                            nodePointers[k].getValue().setDistance(tempDistance);
+                    }
                 }
             }
         }

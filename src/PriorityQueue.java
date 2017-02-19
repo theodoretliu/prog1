@@ -1,20 +1,17 @@
-/**
- * Created by theod on 2/15/2017.
- */
 public class PriorityQueue<E extends Compare<E>> {
     private LinkedNode<E> mHead;
 
-    public PriorityQueue() {
+    PriorityQueue() {
         mHead = null;
     }
 
-    public LinkedNode<E> addValue(E value) {
-        mHead = new LinkedNode<E>(value, mHead);
+    LinkedNode<E> addValue(E value) {
+        mHead = new LinkedNode<>(value, mHead);
 
         return mHead;
     }
 
-    public E deleteMin() {
+    E deleteMin() {
         if (mHead == null)
             return null;
 
