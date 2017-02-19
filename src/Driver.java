@@ -1,6 +1,3 @@
-/**
- * Created by theod on 2/15/2017.
- */
 public class Driver {
     public static void main(String args[]) {
 
