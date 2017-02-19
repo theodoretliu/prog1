@@ -1,11 +1,11 @@
 import java.util.Random;
 
-class Graph {
+public class Graph {
     private double[][] mVertices;
     private int mNumVertices;
     private int mDimension;
 
-    Graph(int dimension, int numVertices) {
+    public Graph(int dimension, int numVertices) {
         mNumVertices = numVertices;
         mDimension = dimension;
 
@@ -19,7 +19,7 @@ class Graph {
         }
     }
 
-    double MST() {
+    public double MST() {
         double[] distance = new double[mNumVertices];
         boolean[] inMST = new boolean[mNumVertices];
         LinkedNode<Tuple>[] nodePointers = new LinkedNode[mNumVertices];

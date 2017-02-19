@@ -1,17 +1,17 @@
 public class PriorityQueue<E extends Compare<E>> {
     private LinkedNode<E> mHead;
 
-    PriorityQueue() {
+    public PriorityQueue() {
         mHead = null;
     }
 
-    LinkedNode<E> addValue(E value) {
+    public LinkedNode<E> addValue(E value) {
         mHead = new LinkedNode<>(value, mHead);
 
         return mHead;
     }
 
-    E deleteMin() {
+    public E deleteMin() {
         if (mHead == null)
             return null;
 
