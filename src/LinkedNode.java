@@ -1,4 +1,4 @@
- public class LinkedNode<E extends Compare<E>> {
+ public class LinkedNode<E extends Comparable<E>> {
     private E mValue;
     private LinkedNode<E> mNext;
 

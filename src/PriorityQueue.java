@@ -1,4 +1,4 @@
-public class PriorityQueue<E extends Compare<E>> {
+public class PriorityQueue<E extends Comparable<E>> {
     private LinkedNode<E> mHead;
 
     public PriorityQueue() {

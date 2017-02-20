@@ -1,7 +1,4 @@
-/**
- * Created by theod on 2/15/2017.
- */
-public class Tuple implements Compare<Tuple> {
+public class Tuple implements Comparable<Tuple> {
     private int mId;
     private double mDistance;
 
@@ -26,7 +23,12 @@ public class Tuple implements Compare<Tuple> {
         mDistance = distance;
     }
 
-    public double compareTo(Tuple other) {
-        return mDistance - other.getDistance();
+    public int compareTo(Tuple other) {
+        if (mDistance < other.getDistance())
+            return -1;
+        else if (mDistance > other.getDistance())
+            return 1;
+        else
+            return 0;
     }
 }
