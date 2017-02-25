@@ -1,26 +1,15 @@
 import java.util.Random;
 
 @SuppressWarnings("unchecked")
-public class Graph {
-    private double[][] mVertices;
+public class GraphRandomEdges {
     private int mNumVertices;
-    private int mDimension;
 
-    public Graph(int dimension, int numVertices) {
+    public GraphRandomEdges(int numVertices) {
         mNumVertices = numVertices;
-        mDimension = dimension;
-
-        mVertices = new double[mNumVertices][mDimension];
-        Random rand = new Random();
-
-        for (int i = 0; i < mNumVertices; i++) {
-            for (int j = 0; j < mDimension; j++) {
-                mVertices[i][j] = rand.nextDouble();
-            }
-        }
     }
 
     public double MST() {
+        Random rand = new Random();
         double[] distance = new double[mNumVertices];
         boolean[] inMST = new boolean[mNumVertices];
         LinkedNode<Tuple>[] nodePointers = new LinkedNode[mNumVertices];
@@ -37,27 +26,13 @@ public class Graph {
 
         for (int z = 0; z < mNumVertices; z++) {
             Tuple temp = heap.deleteMin();
-//            int min_index = -1;
-//            double min = 101;
-//            for (int i = 0; i < mNumVertices; i++) {
-//                if (distance[i] < min && !inMST[i]) {
-//                    min = distance[i];
-//                    min_index = i;
-//                }
-//            }
 
             MSTweight += distance[temp.getId()];
             inMST[temp.getId()] = true;
 
             for (int k = 0; k < mNumVertices; k++) {
                 if (!inMST[k]) {
-                    double tempDistance = 0;
-
-                    for (int l = 0; l < mDimension; l++) {
-                        tempDistance += Math.pow(mVertices[temp.getId()][l] - mVertices[k][l], 2);
-                    }
-
-                    tempDistance = Math.sqrt(tempDistance);
+                    double tempDistance = rand.nextDouble();
 
                     if (tempDistance < distance[k]) {
                         distance[k] = tempDistance;
