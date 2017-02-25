@@ -11,15 +11,15 @@ public class Driver {
         int dimension = Integer.parseInt(args[3]);
         double average = 0;
         System.out.println("Running...");
-        if (dimension == 0) {
+        if (dimension == 0) { 
             for (int i = 0; i < numTrials; i++) {
-                GraphRandomEdges g = new GraphRandomEdges(numPoints);
+                GraphRandomEdges g = new GraphRandomEdges(numPoints); // Complete graph with uniformly random edge weights between 0 and 1
 
                 average += g.MST();
             }
         } else {
             for (int j = 0; j < numTrials; j++) {
-                Graph g = new Graph(dimension, numPoints);
+                Graph g = new Graph(dimension, numPoints); // Complete graph with each vertex representing a point in a square/cube/hypercube
 
                 average += g.MST();
             }
