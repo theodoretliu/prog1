@@ -32,7 +32,8 @@ public class GraphRandomEdges {
 
             for (int k = 0; k < mNumVertices; k++) {
                 if (!inMST[k]) { // Don't add edges that form cycles
-                    double tempDistance = rand.nextDouble(); // Since the edge won't be visitged more than once, the random edge weighrt can be calculated "on the fly"
+                    // Since the edge won't be visited more than once, the random edge weight can be calculated "on the fly"
+                    double tempDistance = rand.nextDouble(); 
 
                     if (tempDistance < distance[k]) {
                         distance[k] = tempDistance; 

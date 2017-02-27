@@ -37,14 +37,6 @@ public class Graph {
 
         for (int z = 0; z < mNumVertices; z++) {
             Tuple temp = heap.deleteMin(); // Find minimum edge length
-//            int min_index = -1;
-//            double min = 101;
-//            for (int i = 0; i < mNumVertices; i++) {
-//                if (distance[i] < min && !inMST[i]) {
-//                    min = distance[i];
-//                    min_index = i;
-//                }
-//            }
 
             MSTweight += distance[temp.getId()];
             inMST[temp.getId()] = true;
@@ -54,7 +46,8 @@ public class Graph {
                     double tempDistance = 0;
 
                     for (int l = 0; l < mDimension; l++) {
-                        tempDistance += Math.pow(mVertices[temp.getId()][l] - mVertices[k][l], 2); // Calculate distance based on vertex coordinates
+                        // Calculate distance based on vertex coordinates
+                        tempDistance += Math.pow(mVertices[temp.getId()][l] - mVertices[k][l], 2); 
                     }
 
                     tempDistance = Math.sqrt(tempDistance);
